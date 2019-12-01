@@ -6,6 +6,7 @@ import { Routes } from '../../const/Routes';
 import { AUTH_ACTION_TYPES } from './authConstants';
 import {authApi} from "../../api/authApi";
 import {authActions} from './authSlice'
+import {error} from "../../helpers/toaster-helper";
 
 function* checkAuthStatusSaga() {
     try {
@@ -26,14 +27,7 @@ function* authSaga({ payload }) {
         yield call(checkAuthStatusSaga);
     } catch (err) {
         if (err.response && err.response.status === 400) {
-            // yield put(
-            //     modalActions.openErrorModal({
-            //         btnText: 'Try again',
-            //         description: 'Your verification code is invalid. Please try again',
-            //         onButtonClick: () => store.dispatch(modalActions.closeModal()),
-            //     }),
-            // );
-            alert('wrongCreds')
+            error('Authorization error')
         }
         console.error('authSaga error', err);
     }

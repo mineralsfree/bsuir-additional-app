@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { Routes } from '../const/Routes';
+import {Header} from "./Header/Header";
 
 export const AuthorizedRoute = props => {
     const { component: Component, isAuthorized, ...rest } = props;
-
+        console.log('lol')
     return (
         <Route
             {...rest}
@@ -12,6 +13,7 @@ export const AuthorizedRoute = props => {
                 if (isAuthorized) {
                     return (
                         <>
+                            <Header {...routeProps}/>
                             <Component {...routeProps} />
                         </>
                     );

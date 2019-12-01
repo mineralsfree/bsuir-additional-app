@@ -1,0 +1,41 @@
+@import "../../../colors.scss";
+
+.news-post{
+  &-image{
+    max-width: 100%;
+    height: auto;
+  }
+  &-container{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 2px solid #AAA;
+    border-radius: 16px;
+    margin: 16px 0;
+    background: #333;
+    color: $green;
+    width: 700px;
+    max-width: 700px;
+  }
+  &-content{
+    color: $white;
+    a{
+      color: $green;
+      text-decoration: none;
+      &:hover{
+        color: $pink
+      }
+
+    }
+  }
+  &-title{
+      color: $green;
+      text-decoration: none;
+      font-size: 28px;
+      min-height: 70px;
+      min-width: 27px;
+    &:hover{
+      color: $pink
+    }
+  }
+}

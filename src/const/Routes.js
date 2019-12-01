@@ -1,4 +1,9 @@
 export const Routes = {
     EmptyRoute: '/',
-    MainRoute: '/main',
+    MainRoute: '/news',
+    Erud: '/erad',
+    Rating: '/rating',
+    Files: '/files',
+    FreeRooms: '/free-rooms'
+
 }

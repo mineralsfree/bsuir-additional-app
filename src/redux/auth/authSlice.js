@@ -2,8 +2,9 @@ import { createSlice } from 'redux-starter-kit';
 
 const initialState = { userId: null, token: null };
 
+
 const authSlice = createSlice({
-    slice: 'auth',
+    name: 'auth',
     initialState,
     reducers: {
         setAuthData(state, action) {

@@ -1,0 +1,68 @@
+@import "../../colors.scss";
+.auth-page{
+  &-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+  &-login{
+    display: flex;
+
+
+  }
+  &-login-button{
+    font-size: 15px;
+    margin-top: 10px;
+    background: $green;
+    color: $white;
+    padding: 17px;
+    border-radius: 15px;
+    outline: none;
+    border: 0;
+  }
+  &-login-icon{
+    position: relative;
+    right: -29px;
+    height: 28px;
+    background-color: #312312;;
+    width: 28px;
+  }
+  &-input{
+    margin: 18px 0 0;
+    height: 48px;
+    min-width: 300px;
+    width: calc(100% - 56px)  ;
+    border: 0;
+    color: $white;
+    background: $grey-2;
+    background-origin: content-box;
+    padding-left: 10px;
+    outline: none;
+    background-position: left;
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    &::placeholder{
+      font-family: MyriadPro-Regular, serif;
+      color: $white;
+    }
+  }
+  &-content{
+  margin: auto;
+  }
+  &-logo{
+    width: 300px;
+    height: 300px;
+  }
+  &-login-input{
+    background-image: url("../../static-photos/2x/user.png");
+  }
+  &-password-input{
+    background-image: url("../../static-photos/2x/password.png");
+
+  }
+  &-input-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+}
