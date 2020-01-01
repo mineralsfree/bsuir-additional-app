@@ -2,6 +2,7 @@ import React from 'react';
 import {cn} from '@bem-react/classname'
 import './Header.scss'
 import {Link} from "react-router-dom";
+import {ProfileIcon} from "../profileIcon/ProfileIcon";
 
 const headerCN = cn('header');
 export  const Header = props =>{
@@ -17,9 +18,9 @@ export  const Header = props =>{
               <Link className={headerCN('link',{active: pathname==='/rating' })} to={'/rating'}>Рейтинг</Link>
               <Link className={headerCN('link',{active: pathname==='/files' })} to={'/files'}>Файлы</Link>
               <Link className={headerCN('link',{active: pathname==='/free-rooms' })} to={'/free-rooms'}>Свободные аудитории</Link>
-
           </nav>
-          <span className={'profile'}></span>
+          <ProfileIcon/>
+
       </div>
   </div>)
 };

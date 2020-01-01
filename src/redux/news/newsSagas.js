@@ -1,4 +1,4 @@
-import { all, takeLatest, put, call } from 'redux-saga/effects';
+import { all, takeLatest, put } from 'redux-saga/effects';
 import {NEWS_ACTION_TYPES} from "./newsConstants";
 import {newsApi} from "../../api/newsApi";
 import {error} from "../../helpers/toaster-helper";
@@ -13,9 +13,7 @@ function* getNews({payload}) {
        if (e.message.includes('500'))
        error('Pankratiew server fucked up');
        else error('Something went wrong')
-
    }
-
 }
 
 function* sagas() {

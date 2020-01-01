@@ -1,0 +1,79 @@
+@import "../../colors.scss";
+
+.user-page {
+  &-capture {
+    color: $green;
+  }
+
+  &-links {
+    a {
+      color: $white;
+
+      &:hover {
+        color: $pink
+      }
+    }
+  }
+
+  &-name {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  &-rating {
+    display: flex;
+    justify-content: center;
+  }
+  &-exit{
+    cursor: pointer;
+  }
+  &-photo {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+
+  &-container {
+    font-size: 16px;
+    display: grid;
+    width: 700px;
+    margin: auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-rows: 300px auto;
+    grid-template-areas: "i b" "s s";
+  }
+
+  &-icon {
+    padding: 20px;
+    grid-area: i;
+    background: $grey-2;
+  }
+
+  &-base-info {
+    background: $grey-2;
+    color: $green;
+    padding: 25px;
+    grid-area: b;
+  }
+
+  &-info {
+    > div {
+      margin-top: 10px
+    }
+
+    font-size: 18px;
+    background: $grey-2;
+    padding: 20px;
+    grid-area: s;
+  }
+}

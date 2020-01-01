@@ -7,7 +7,7 @@ export const authApi = {
         if (response.status === 200){
             const token =  response.data.token;
 
-            axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+            axios.defaults.headers.common.Authorization = token;
             localStorage.setItem('authToken', token);
         }
     }
@@ -16,8 +16,7 @@ export const initAuthorization = () => {
     const token = localStorage.getItem('authToken');
 
     if (token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        axios.defaults.headers.common.Authorization = token;
     }
 };
-
 initAuthorization();

@@ -1,0 +1,23 @@
+@import "../../colors.scss";
+.user-icon{
+
+  &-container{
+    color: $white;
+    a {
+      color: $white;
+      text-decoration: none;
+
+    }
+    &:hover{
+      background: rgba($grey-2, 0.8);
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    margin-left: 10px;
+    text-align: center;
+    font-size: 18px;
+    width: 160px;
+    display: inline-block;
+    padding: 16px 10px;
+  }
+}

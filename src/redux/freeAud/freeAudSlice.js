@@ -1,30 +1,29 @@
 import { createSlice } from 'redux-starter-kit';
 
-const initialState = {};
+const initialState = {
+    freeAuds: []
+};
 
 
-const newsSlice = createSlice({
+const freeAuds = createSlice({
     name: 'freeAud',
     initialState,
     reducers: {
-        getFreeAuds({page, count}){},
-        setNews({news}){
+
+        getFreeAuds(building, floor, date, time ){},
+        setFreeAuds(state, {payload}) {
+            console.log(freeAuds);
             return {
-                page: news.page,
-                newsAtPage: news.newsAtPage,
-                count: news.count,
-                news: news.news
+                ...state,
+                freeAuds: payload
             }
         },
-        clearNews() {
-            return {
-                ...initialState,
-            };
+        clearFreeAuds() {
+            return initialState
         },
-        auth({login, password}) {},
     },
 });
 
-export const newsActions = newsSlice.actions;
+export const freeAudActions = freeAuds.actions;
 
-export default newsSlice.reducer;
+export default freeAuds.reducer;

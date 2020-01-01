@@ -5,7 +5,6 @@ import {Header} from "./Header/Header";
 
 export const AuthorizedRoute = props => {
     const { component: Component, isAuthorized, ...rest } = props;
-        console.log('lol')
     return (
         <Route
             {...rest}

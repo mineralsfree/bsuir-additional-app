@@ -4,6 +4,6 @@ export const Routes = {
     Erud: '/erad',
     Rating: '/rating',
     Files: '/files',
-    FreeRooms: '/free-rooms'
-
+    FreeRooms: '/free-rooms',
+    Profile: '/user'
 }

@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
@@ -8,7 +9,6 @@ import history from './helpers/history';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {ConnectedRouter} from "connected-react-router";
-
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>

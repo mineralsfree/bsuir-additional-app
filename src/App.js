@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Redirect } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer  } from 'react-toastify';
 
 import {AuthPage} from './components/auth/auth';
 
@@ -17,10 +17,11 @@ import { NonAuthorizedRoute } from './components/NonAuthorizedRoute';
 
 import { isAuthorizedSelector } from './redux/auth/authSelectors';
 import {FreeRooms} from "./components/FreeRooms/FreeRooms";
+import {ProfilePage} from "./components/Profile-page/ProfilePage";
 
 function App(props) {
   const { isAuthorized, location } = props;
-
+    console.log(isAuthorized);
     return (
         <div className={`theme`}>
             <ToastContainer />
@@ -31,6 +32,7 @@ function App(props) {
               <AuthorizedRoute path={Routes.Erud} component={News} isAuthorized={isAuthorized} withNavigation />
               <AuthorizedRoute path={Routes.Files} component={News} isAuthorized={isAuthorized} withNavigation />
               <AuthorizedRoute path={Routes.Rating} component={News} isAuthorized={isAuthorized} withNavigation />
+              <AuthorizedRoute path={Routes.Profile} component={ProfilePage} isAuthorized={isAuthorized} withNavigation />
               <Redirect to={Routes.MainRoute} />
           </Switch>
         </div>

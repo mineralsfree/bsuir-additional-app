@@ -8,11 +8,9 @@
   &-container{
     display: flex;
     flex-direction: column;
-    padding: 16px;
-    border: 2px solid #AAA;
-    border-radius: 16px;
-    margin: 16px 0;
-    background: #333;
+    padding: 25px;
+    border: 2px solid $grey-4;
+    background: $grey-3;
     color: $green;
     width: 700px;
     max-width: 700px;
