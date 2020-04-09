@@ -10,6 +10,7 @@ function* getNews({payload}) {
        const response = yield newsApi.getNews(page, newsAtPage);
         yield put(newsActions.setNews(response.data))
    } catch (e) {
+       error(e);
        if (e.message.includes('500'))
        error('Pankratiew server fucked up');
        else error('Something went wrong')

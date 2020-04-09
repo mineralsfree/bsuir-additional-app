@@ -13,7 +13,7 @@ const newsSlice = createSlice({
                 state.page =  news.payload.page;
                 state.newsAtPage =  20;
                 state.count= news.payload.count;
-                state.news = [...state.news,  ...news.payload.news]
+                state.news = [...state.news,  ...news.payload.content]
         },
         clearNews() {//F2NikitaF
             return {

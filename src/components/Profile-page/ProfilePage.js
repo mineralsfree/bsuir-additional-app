@@ -51,7 +51,7 @@
             <div className={profilePageCn('base-info')}>
                 <div className={profilePageCn('name')}>{`${user.firstName} ${user.lastName}`}</div>
                 <div>Родился {moment(user.birthDay * 1000).format('LLL')}</div>
-                <div>{`Студент ${user.education.course} курса. Факультет ${user.education.faculty}`}</div>
+                <div>{`Студент ${user.educationInfo.course} курса. Факультет ${user.educationInfo.faculty}`}</div>
             </div>}
             {user && user.skills &&
             <div className={profilePageCn('info')}>
@@ -69,7 +69,7 @@
         </div>)
     }
     // birthDay: 938779200
-    // education: {faculty: "КСиС", course: 3, speciality: "ПОИТ", group: "751006"}
+    // educationInfo: {faculty: "КСиС", course: 3, speciality: "ПОИТ", group: "751006"}
     // firstName: "Никита"
     // id: 824
     // lastName: "Пилинко"
