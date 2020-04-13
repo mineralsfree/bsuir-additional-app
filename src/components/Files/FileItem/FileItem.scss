@@ -1,0 +1,11 @@
+@import "../../../colors";
+
+.file-item {
+  &-container{
+
+  }
+  &-capture{
+    width: 75px;
+    text-align: center;
+  }
+}

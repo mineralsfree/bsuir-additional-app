@@ -1,29 +1,28 @@
 @import "../../colors.scss";
 .files-page {
   &-container {
+    padding: 16px;
     min-height: 500px;
     max-width: 800px;
     background: $grey-4;
     margin: 0 auto;
   }
-
+&-files-area{
+  padding: 16px 0;
+  display: flex;
+}
 
 }
 .file-drop {
   /* relatively position the container bc the contents are absolute */
-  min-height: 500px;
-  max-width: 800px;
+
   background: $grey-4;
-  margin: 0 auto;
 }
 
 .file-drop > .file-drop-target {
   /* basic styles */
   position: absolute;
-  top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
   border-radius: 2px;
 
   /* horizontally and vertically center all content */
