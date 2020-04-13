@@ -1,0 +1,54 @@
+@import "../../colors.scss";
+.files-page {
+  &-container {
+    min-height: 500px;
+    max-width: 800px;
+    background: $grey-4;
+    margin: 0 auto;
+  }
+
+
+}
+.file-drop {
+  /* relatively position the container bc the contents are absolute */
+  min-height: 500px;
+  max-width: 800px;
+  background: $grey-4;
+  margin: 0 auto;
+}
+
+.file-drop > .file-drop-target {
+  /* basic styles */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+
+  /* horizontally and vertically center all content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.file-drop > .file-drop-target.file-drop-dragging-over-frame {
+  /* overlay a black mask when dragging over the frame */
+  border: none;
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
+  z-index: 50;
+  opacity: 1;
+
+  /* typography */
+  color: white;
+}
+
+.file-drop > .file-drop-target.file-drop-dragging-over-target {
+  /* turn stuff orange when we are dragging over the target */
+  color: #ff6e40;
+  box-shadow: 0 0 13px 3px #ff6e40;
+}

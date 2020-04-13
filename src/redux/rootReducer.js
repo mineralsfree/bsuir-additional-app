@@ -5,6 +5,7 @@ import authReducer from './auth/authSlice';
 import freeAudApi from './freeAud/freeAudSlice'
 import newsReducer from './news/newsSlice'
 import userReducer from './user/userSlice'
+import filesReducer from './files/filesSlice'
 
 export const createRootReducer = history =>
     combineReducers({
@@ -13,6 +14,6 @@ export const createRootReducer = history =>
         auth: authReducer,
         news: newsReducer,
         freeAuds: freeAudApi,
-        user: userReducer
-
+        user: userReducer,
+        files: filesReducer
     });

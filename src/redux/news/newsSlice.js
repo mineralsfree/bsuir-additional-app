@@ -25,6 +25,6 @@ const newsSlice = createSlice({
     },
 });
 
-export const newsActions = newsSlice.actions;
+export const  newsActions = newsSlice.actions;
 
 export default newsSlice.reducer;
