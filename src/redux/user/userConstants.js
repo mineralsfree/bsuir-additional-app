@@ -1,4 +1,5 @@
 export const USER_ACTION_TYPES ={
-    GET: 'user/getUser',
-    UNSET: 'user/clearUser',
+    GET_USER: 'user/getUser',
+    GET_RECORDBOOK: 'user/getMarks',
+    UNSET_USER: 'user/clearUser',
 }

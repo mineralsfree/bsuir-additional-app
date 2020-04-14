@@ -1,4 +1,4 @@
-import {all, takeLatest, put, call} from 'redux-saga/effects';
+import {all, takeLatest, put} from 'redux-saga/effects';
 import {FILE_ACTION_TYPES} from './filesConstants'
 import {filesApi} from "../../api/filesApi";
 import {filesActions} from "./filesSlice";
@@ -16,6 +16,9 @@ catch (e) {
   else error('Something went wrong')
 }
 }
+//function* changeDir({type, payload}) {
+
+//}
 
 function* sagas() {
 

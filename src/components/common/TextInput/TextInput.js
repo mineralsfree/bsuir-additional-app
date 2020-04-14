@@ -1,6 +1,10 @@
 import React from "react";
-import {InputGroup} from "react-bootstrap";
+import {cn} from "@bem-react/classname";
+import './TextInput.scss'
 
-export const Input = props =>{
-    return(<InputGroup >{props.children}</InputGroup>)
-}
+const textInputCN = cn('text-input')
+export const Input = (field) => (<>
+  <input  {...field.input} type="text" className={textInputCN()} autoComplete={'off'}/>
+  {field.meta.touched && field.meta.error &&
+  <span className="error">{field.meta.error}</span>}
+</>)

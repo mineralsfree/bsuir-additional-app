@@ -1,0 +1,8 @@
+@import '../../../colors';
+.common-button{
+  background: $grey-2;
+  border: 0;
+  border-radius: 8px;
+  color: $white;
+  min-height: 38px;
+}

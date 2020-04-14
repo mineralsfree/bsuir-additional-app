@@ -1,9 +1,8 @@
 import React from "react";
-import {Button} from "react-bootstrap";
-
-export const MyButton = props =>{
-    return (<Button variant="dark">
+import {cn} from "@bem-react/classname";
+import './Button.scss'
+export const CommonButton = props =>{
+    return (<button className={cn('common-button')()}>
         {props.children}
-
-    </Button>)
+    </button>)
 }

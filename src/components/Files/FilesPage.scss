@@ -11,11 +11,14 @@
   padding: 16px 0;
   display: flex;
 }
-
+&-add-directory-form button{
+  margin-left: 10px;
+}
 }
 .file-drop {
   /* relatively position the container bc the contents are absolute */
-
+  width: 200px;
+  height: 200px;
   background: $grey-4;
 }
 
