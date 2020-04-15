@@ -14,22 +14,34 @@ import {Input} from "../common/TextInput/TextInput";
 import {Field, reduxForm} from "redux-form";
 import formValueSelector from "redux-form/lib/formValueSelector";
 import {CommonButton} from "../common/Button/Button";
+import {getParentFolder} from "../../helpers/fileHelper";
 
 const FilesPageCn = cn('files-page')
-export const MyFilesPage = () => {
+export const MyFilesPage = props => {
   const dispatch = useDispatch();
   const dir = useSelector(getCurrentDirSelector);
   const files = useSelector(getFilesSelector);
-  const formValueSector = formValueSelector('createDirectoryForm');
+  const formValueSector = formValueSelector('filesPageForm');
   const dirNameSelector = state => formValueSector(state, 'dirName')
+  const urlSelector = state => formValueSector(state, 'linkUrl')
+  const urlNameSelector = state => formValueSector(state, 'linkName')
+  const url = useSelector(urlSelector);
+  const urlName = useSelector(urlNameSelector);
   const dirName = useSelector(dirNameSelector);
   useEffect(() => {
     dispatch(filesActions.getDir(dir))
   }, [dispatch, dir])
-  const handleForm = (e) => {
+  const handleAddFile = (e) => {
     e.preventDefault();
-    filesApi.createDirectory(dir, dirName).then((response) =>{
+    filesApi.createDirectory(dir, dirName).then(() => {
       dispatch(filesActions.getDir(dir));
+    })
+  }
+  const addLink = (e) => {
+    e.preventDefault();
+    filesApi.addLink(dir, urlName, url).then(() => {
+      props.reset();
+      dispatch(filesActions.getDir(dir))
     })
   }
   const uploadFile = (fileList, e) => {
@@ -38,25 +50,36 @@ export const MyFilesPage = () => {
       error("Only one file at time for now")
       return
     }
-    filesApi.uploadFile(fileList[0], dir).then(dispatch(filesActions.getDir(dir)))
+    filesApi.uploadFile(fileList[0], dir).then(() => dispatch(filesActions.getDir(dir)))
   }
-  const openDirectory = (file)=>{
+  const openDirectory = (file) => {
     dispatch(filesActions.cd(file.id));
   }
 
   const filesMapped = files.map((el, i) => {
     return (<>  <MenuProvider id={"menu_id"} data={el}>
-      <FilesItem onDoubleClick={openDirectory} file={el}/> </MenuProvider>
+      <FilesItem onDoubleClick={openDirectory} file={el}/>
+    </MenuProvider>
     </>)
   })
   return (
     <>
       <div id={'file-page'} className={FilesPageCn('container')}>
-        <form onSubmit={e => handleForm(e)} className={FilesPageCn('add-directory-form')}>
-          <Field component={Input} name='dirName'/>
-          <CommonButton>Create folder</CommonButton>
-        </form>
-
+        <div className={FilesPageCn('forms')}>
+          <form onSubmit={e => handleAddFile(e)} className={FilesPageCn('add-directory-form')}>
+            <Field component={Input} name='dirName' placeholder={'Folder name'}/>
+            <CommonButton>Create folder</CommonButton>
+          </form>
+          <form className={FilesPageCn('add-link-form')} onSubmit={e => addLink(e)}>
+            <div className={FilesPageCn('add-link-form-input-container')}>
+              <Field required component={Input} type={'url'} pattern={'https://.*'} name='linkUrl' label={'Url'}
+                     className={FilesPageCn('add-link-input')}/>
+              <Field required component={Input} name='linkName' label={'Name'}
+                     className={FilesPageCn('add-link-input')}/>
+            </div>
+            <CommonButton>Add Link</CommonButton>
+          </form>
+        </div>
         <div className={FilesPageCn('files-area')}>
           {filesMapped}
           <FilesMenu/>
@@ -67,8 +90,9 @@ export const MyFilesPage = () => {
           }}>
         </FileDrop>
       </div>
+
     </>)
 }
 export const FilesPage = reduxForm({
-  form: 'createDirectoryForm',
+  form: 'filesPageForm',
 })(MyFilesPage)

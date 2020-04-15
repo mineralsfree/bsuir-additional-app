@@ -16,6 +16,7 @@
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-contexify": "^4.1.1",
+    "react-datepicker": "^2.13.0",
     "react-dom": "^16.10.2",
     "react-file-drop": "^3.0.6",
     "react-file-icon": "^0.2.0",

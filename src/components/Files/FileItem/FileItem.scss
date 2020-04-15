@@ -2,10 +2,18 @@
 
 .file-item {
   &-container{
-
+    svg{
+      margin: auto;
+    }
+    display: flex;
+    flex-direction: column;
   }
   &-capture{
-    width: 75px;
+    user-select: none;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
   }
 }

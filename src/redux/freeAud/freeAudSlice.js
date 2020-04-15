@@ -10,7 +10,7 @@ const freeAuds = createSlice({
     initialState,
     reducers: {
 
-        getFreeAuds(building, floor, date, time ){},
+        getFreeAuds(building, floor,time, date  ){},
         setFreeAuds(state, {payload}) {
             console.log(freeAuds);
             return {

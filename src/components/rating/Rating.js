@@ -19,11 +19,11 @@ export const Rating = () => {
   }, [dispatch])
   let marks = useSelector(getUserMarksSelector);
   let data = marks.semesters.map((el) => {
-    if (el.averageMark > 0) return {name: "S " + el.number || 0, uv: el.averageMark || 0}
+    if (el.averageMark > 0) return {name: "S " + el.number || 0, 'Average mark': el.averageMark || 0}
     return {name: "S " + el.number};
   })
   console.log((marks.semesters[0] && marks.semesters[0].marks))
-const content = (mode === 'overview') ? (    <LineChart
+const content = (mode === 'overview') ? (<><div> Overall average: {marks.averageMark}</div>    <LineChart
   width={500}
   height={400}
   data={data}
@@ -31,13 +31,13 @@ const content = (mode === 'overview') ? (    <LineChart
     top: 5, right: 30, left: 20, bottom: 5,
   }}
 >
-  <Line dataKey="uv" stroke="#8884d8"/>
+  <Line dataKey="Average mark" stroke="#8884d8"/>
   <XAxis domain={[1, 8]} dataKey="name"/>
   <YAxis interval={'preserveStart'} domain={[0, 11]} tickCount={12}/>
-  <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
+  <CartesianGrid style={{opacity: 0.2}} stroke="#ccc" strokeDasharray="5 5"/>
   <Tooltip/>
   <Legend/>
-</LineChart>) : (
+</LineChart></>) : (
   <>
     <div> Average mark: {marks.semesters[mode -1].averageMark}</div>
   <Table data={marks.semesters[mode -1].marks.map(m => mapMarks(m))} head={tableHead}/>

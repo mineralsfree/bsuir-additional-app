@@ -1,3 +1,4 @@
 export const fileType = {
-  directory: "DIRECTORY"
+  directory: "DIRECTORY",
+  link: "LINK"
 }

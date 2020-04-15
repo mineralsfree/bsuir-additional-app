@@ -6,6 +6,7 @@ import {freeAudActions} from './freeAudSlice'
 function* getFreeAuds({payload}) {
     const {building, floor, date, time } = payload;
     try {
+        console.log(payload);
         const response = yield freeAudApi.getFreeAuds(building, floor, date, time );
         yield put(freeAudActions.setFreeAuds( response.data))
     } catch (e) {

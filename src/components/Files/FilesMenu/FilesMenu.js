@@ -7,9 +7,8 @@ import {useDispatch} from "react-redux";
 import {filesActions} from "../../../redux/files/filesSlice";
 import {useSelector} from "react-redux";
 import {getCurrentDirSelector} from "../../../redux/files/filesSelectors";
-
-
-export const FilesMenu = () => {
+export const FilesMenu = props => {
+    console.log(props)
     const dispatch = useDispatch();
     const dir = useSelector(getCurrentDirSelector);
     const onDownload = ({event, props}) => {

@@ -1,25 +1,65 @@
 @import "../../colors.scss";
+
 .files-page {
   &-container {
-    padding: 16px;
+    padding: 0 16px ;
     min-height: 500px;
-    max-width: 800px;
+    max-width: 1000px;
     background: $grey-4;
     margin: 0 auto;
   }
-&-files-area{
-  padding: 16px 0;
-  display: flex;
+
+  &-files-area {
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-add-directory-form{
+    display: flex;
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid $white;
+    justify-content: space-around;
+  }
+  &-add-directory-form button {
+    margin-left: 10px;
+
+  }
+
+  &-forms {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-add-link-form {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid $white;
+    display: flex;
+    justify-content: space-around;
+    &-input-container input:nth-last-child(1) {
+      margin-top: 10px;
+
+    }
+  }
+
+  &-add-link-form button {
+    margin-left: 10px;
+    align-self: flex-end;
+  }
+
+  &-add-link-input {
+    min-width: 300px;
+  }
 }
-&-add-directory-form button{
-  margin-left: 10px;
-}
-}
+
 .file-drop {
   /* relatively position the container bc the contents are absolute */
-  width: 200px;
-  height: 200px;
-  background: $grey-4;
+  height: 400px;
+  border: 1px solid $grey-2;
+}
+.file-drop::after{
+  content: 'Drop zone';
 }
 
 .file-drop > .file-drop-target {

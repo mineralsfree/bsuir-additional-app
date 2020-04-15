@@ -6,6 +6,8 @@ export const freeAudApi = {
     getFreeAuds: async (building, floor, date, time = moment().format('HH:mm')) => {
         if (!date) {
             date = new Date().toISOString().split('T')[0]
+        } else{
+            date = date.toISOString().split('T')[0]
         }
         const esc = encodeURIComponent;
         const params = {building, floor, date, time};

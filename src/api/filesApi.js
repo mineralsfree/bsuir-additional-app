@@ -1,12 +1,14 @@
 import {API_URL} from "./baseApi";
 
 import axios from 'axios'
+import {notify} from "../helpers/toaster-helper";
 
 export const filesApi = {
   getDir: async (id) => {
     return axios.get(`${API_URL}/directories/${id}/files`)
   },
   uploadFile: async (file, path) => {
+    notify('Upload may take time, pls, wait')
     let formData = new FormData();
     formData.append("file", file);
     return axios({
@@ -16,16 +18,19 @@ export const filesApi = {
       }
     })
   },
-  downloadFile: async (id) =>{
+  downloadFile: async (id) => {
     return axios.get(`${API_URL}/files/${id}/download`)
   },
-  deleteFile: async (id) =>{
+  deleteFile: async (id) => {
     return axios.get(`${API_URL}/files/${id}/download`);
   },
-  createDirectory: async (id, fileName) =>{
-      return axios.post(`${API_URL}/directories/${id}/directory`,{fileName})
+  createDirectory: async (id, fileName) => {
+    return axios.post(`${API_URL}/directories/${id}/directory`, {fileName})
   },
   changeRights: async (id, rights) => {
 
+  },
+  addLink: async (id, fileName, url) => {
+    return axios.post(`${API_URL}/directories/${id}/link`, {fileName, url})
   }
 }

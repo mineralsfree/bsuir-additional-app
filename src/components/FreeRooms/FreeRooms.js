@@ -9,6 +9,7 @@ import {freeAudActions} from '../../redux/freeAud/freeAudSlice';
 import {getAudsSelector} from "../../redux/freeAud/freeAudSelectors";
 import './FreeRooms.scss';
 import {lessons} from "./ClassesTimeMock";
+import {MyDatePicker} from "../common/DatePicker/DatePicker";
 
 const roomsCN = cn('free-rooms');
 export const FreeRooms = () => {
@@ -20,7 +21,7 @@ export const FreeRooms = () => {
     });
 
     const dispatch = useDispatch();
-    const [form, setForm] = useState({building: 1, floorOptions: buildingMock()[1], floor: null, date: '', time: ''})
+    const [formData, setForm] = useState({building: 1, floorOptions: buildingMock()[1], floor: null, date: new Date(), time: ''})
     return (<div className={roomsCN('container')}>
         <Form variant="flat" className={roomsCN('form')} onSubmit={(e) => {
             e.preventDefault()
@@ -28,23 +29,30 @@ export const FreeRooms = () => {
             let building = form.elements[0].value;
             let floor = form.elements[1].value;
             let time = lessons.find((el) => el.name === form.elements[2].value);
-            dispatch(freeAudActions.getFreeAuds({building, floor, time: time.value}));
+            let date = formData.date;
+            console.log(form)
+            dispatch(freeAudActions.getFreeAuds({building, floor, time: time.value, date}));
         }}>
             <div className={roomsCN('housing-input')}>
                 <MyDropdown items={Object.keys(buildingMock())} capture={'Номер корпуса'} onChange={(e) => {
                     setForm({
-                        ...form,
+                        ...formData,
                         building: e.target.value,
                         floorOptions: buildingMock()[e.target.value]
                     })
                 }}/>
-                <MyDropdown capture={'Этаж'} items={form.floorOptions}/>
+                <MyDropdown capture={'Этаж'} items={formData.floorOptions}/>
                 <MyDropdown capture={'Пара'} items={lessons}/>
 
             </div>
+            <MyDatePicker date={formData.date} setDate={(date) => {
+    setForm({
+        ...formData,
+        date
+    })
+}}/>
 
             <input className={roomsCN('find-button')} type='submit' value='Поиск'/>
-
         </Form>
         <div className={roomsCN('results-container')}>
             {freePractice.length>0 && <div className={roomsCN('free-practice result-type')}>
