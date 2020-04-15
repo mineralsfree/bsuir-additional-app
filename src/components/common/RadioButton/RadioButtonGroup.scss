@@ -1,0 +1,16 @@
+@import "src/colors";
+.radio-button-group{
+  &-item{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  &-label{
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  &-item:checked + .radio-button-group-label{
+    background-color: $grey-2;
+  }
+}

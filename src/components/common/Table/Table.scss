@@ -1,0 +1,10 @@
+@import 'src/colors.scss';
+table, th, td{
+  border: 2px solid $grey-2;
+}
+td, th{
+  padding: 8px;
+}
+th{
+  background: $grey-4;
+}
