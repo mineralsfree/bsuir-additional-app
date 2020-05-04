@@ -8,7 +8,6 @@ import {filesActions} from "../../../redux/files/filesSlice";
 import {useSelector} from "react-redux";
 import {getCurrentDirSelector} from "../../../redux/files/filesSelectors";
 export const FilesMenu = props => {
-    console.log(props)
     const dispatch = useDispatch();
     const dir = useSelector(getCurrentDirSelector);
     const onDownload = ({event, props}) => {
@@ -25,7 +24,7 @@ export const FilesMenu = props => {
     return (
         <Menu id='menu_id'>
             <Item onClick={onDownload}>Download</Item>
-            <Item onClick={onDelete} disabled>Delete</Item>
+            <Item onClick={onDelete}>Delete</Item>
         </Menu>
     );
 

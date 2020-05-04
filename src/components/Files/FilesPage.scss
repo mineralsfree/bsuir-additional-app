@@ -2,7 +2,7 @@
 
 .files-page {
   &-container {
-    padding: 0 16px ;
+    padding: 0 16px 16px 16px;
     min-height: 500px;
     max-width: 1000px;
     background: $grey-4;
@@ -13,22 +13,34 @@
     padding: 16px 0;
     display: flex;
     flex-wrap: wrap;
+
   }
-  &-add-directory-form{
+
+  &-add-directory-form {
     display: flex;
     margin: 8px;
     padding: 8px;
     border: 1px solid $white;
     justify-content: space-around;
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+    }
   }
+
   &-add-directory-form button {
     margin-left: 10px;
-
+    @media screen and (max-width: 1023px) {
+      margin-left: 0;
+      margin-top: 8px;
+    }
   }
 
   &-forms {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+    }
   }
 
   &-add-link-form {
@@ -37,6 +49,10 @@
     border: 1px solid $white;
     display: flex;
     justify-content: space-around;
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+    }
+
     &-input-container input:nth-last-child(1) {
       margin-top: 10px;
 
@@ -46,20 +62,37 @@
   &-add-link-form button {
     margin-left: 10px;
     align-self: flex-end;
+    @media screen and (max-width: 1023px) {
+      align-self: initial;
+      margin-top: 8px;
+      margin-left: 0;
+
+    }
   }
 
   &-add-link-input {
     min-width: 300px;
+    @media screen and (max-width: 1023px) {
+      min-width: initial;
+    }
   }
 }
 
 .file-drop {
+  @media screen and (max-width: 1023px) {
+    display: none
+  }
   /* relatively position the container bc the contents are absolute */
   height: 400px;
   border: 1px solid $grey-2;
 }
-.file-drop::after{
+
+.file-drop::after {
   content: 'Drop zone';
+  position: relative;
+  top: calc(50% - 20px);
+  left: calc(50% - 95px);
+  font-size: 40px;
 }
 
 .file-drop > .file-drop-target {

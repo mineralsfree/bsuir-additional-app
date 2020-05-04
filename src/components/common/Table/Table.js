@@ -1,8 +1,6 @@
 import React from "react";
 import './Table.scss'
 export const Table = props => {
-  console.log(props)
-  console.log(props.head)
   return (<table>
     <thead>
     <tr>

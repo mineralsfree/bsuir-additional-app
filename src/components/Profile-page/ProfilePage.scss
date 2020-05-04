@@ -6,6 +6,7 @@
   }
 
   &-links {
+    margin-right: 6px;
     a {
       color: $white;
 
@@ -75,5 +76,8 @@
     background: $grey-2;
     padding: 20px;
     grid-area: s;
+  }
+  &-skill{
+    margin-right: 6px;
   }
 }

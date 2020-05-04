@@ -1,7 +1,8 @@
 import React from 'react'
 import {cn} from "@bem-react/classname";
 import {CommonButton} from "../Button/Button";
-import DatePicker from "react-datepicker/es";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import './DatePicker.scss'
 
 const datePickerCn = cn('date-picker');
@@ -21,6 +22,8 @@ export const MyDatePicker = props => {
     <DatePicker
       selected={props.date}
       onChange={props.setDate}
+      calendarClassName={datePickerCn("date-picker")}
+      dayClassName={date =>  datePickerCn('days')}
       className={datePickerCn("input")}
     />
   </div>)

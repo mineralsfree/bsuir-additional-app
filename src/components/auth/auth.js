@@ -18,7 +18,6 @@ export const Auth = () => {
 
   const handleForm = e => {
     e.preventDefault();
-
     dispatch(authActions.auth({login, password}));
   };
   return (<div className={authPageCn('container')}>

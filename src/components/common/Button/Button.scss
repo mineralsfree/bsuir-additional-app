@@ -1,10 +1,11 @@
 @import '../../../colors';
-.common-button{
+
+.common-button {
   background: $grey-2;
   border: 0;
   border-radius: 8px;
   color: $white;
-padding: 0 16px;
+  padding: 0 16px;
   white-space: nowrap;
   height: 38px;
 }

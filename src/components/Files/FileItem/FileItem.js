@@ -8,7 +8,6 @@ import {fileType} from "../../../constants/fileTypes";
 const fileItemCn = cn('file-item')
 export const  FilesItem = props => {
   const file = props.file;
-  console.log(props);
   let dblClickAction = null;
   if (props.file.type === fileType.directory) {
     dblClickAction = () => props.onDoubleClick(props.file);
@@ -19,6 +18,7 @@ export const  FilesItem = props => {
   return (<div onDoubleClick={dblClickAction}
                className={fileItemCn('container')}>
     <FileIcon size={75}
+              labelColor={'#61bea3'}
               extension={file.type !== fileType.directory ? fileExtension : ''} {...defaultStyles[`${fileExtension}`]} />
     <div className={fileItemCn("capture")}>{file.fileName}</div>
   </div>)

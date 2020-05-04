@@ -1,8 +1,12 @@
 import {createSlice} from 'redux-starter-kit';
 
-const initialState = {user: {}, marks: {
-  semesters: []
-  }};
+const initialState = {
+  user: {}, marks: {
+    semesters: [],
+    user: {},
+    marks: {}
+  }
+};
 
 
 const userSlice = createSlice({

@@ -17,7 +17,6 @@ export const ProfilePage = props => {
         dispatch(userActions.getUser())
     }, [dispatch]);
     const user = useSelector(getUserSelector);
-    user && user.birthDay && console.log(user.birthDay);
 
     const skills = user && user.skills && user.skills.map((el) => {
         return <span className={profilePageCn('skill')}>{el.name}</span>
@@ -52,7 +51,7 @@ export const ProfilePage = props => {
         {user.firstName &&
         <div className={profilePageCn('base-info')}>
             <div className={profilePageCn('name')}>{`${user.firstName} ${user.lastName}`}</div>
-            <div>Родился {moment(user.birthDay).format('LLL')}</div>
+            <div>Родился {moment(user.birthDay).format('LL')}</div>
             <div>{`Студент ${user.educationInfo.course} курса. Факультет ${user.educationInfo.faculty}`}</div>
         </div>}
         {user && user.skills &&

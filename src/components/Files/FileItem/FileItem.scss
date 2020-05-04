@@ -9,11 +9,12 @@
     flex-direction: column;
   }
   &-capture{
+    margin: 6px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    text-align: center;
     user-select: none;
     width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
+    white-space: break-spaces;
   }
 }
