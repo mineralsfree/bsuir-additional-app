@@ -3,7 +3,7 @@ import './App.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 
@@ -28,7 +28,7 @@ function App(props) {
         <div className={`theme`}>
             <ToastContainer/>
           <Switch location={location}>
-              <NonAuthorizedRoute exact={true} path={'/contact'} component={ContactsPage} isAuthorized={isAuthorized} />
+              <Route exact={true} path={'/contact'} component={ContactsPage} isAuthorized={isAuthorized} />
               <NonAuthorizedRoute exact={true} path={'/'} component={AuthPage} isAuthorized={isAuthorized} />
               <AuthorizedRoute path={Routes.MainRoute} component={News} isAuthorized={isAuthorized} withNavigation />
               <AuthorizedRoute path={Routes.FreeRooms} component={FreeRooms} isAuthorized={isAuthorized} withNavigation />
