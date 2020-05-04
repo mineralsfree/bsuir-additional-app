@@ -7,7 +7,6 @@ export const semesters = [ {label: 'overview', value: 'overview'},  {label: '1',
 }, {label: '7', value: '7'}, {label: '8', value: '8'},]
 export const tableHead = ['Discipline', 'Hours', 'Control form', 'Mark', 'Lecturer', 'Retakes']
 export const mapMarks =  m => {
-  console.log(m);
   return [m.subject, m.hours, m.formOfControl, m.mark, m.teacher, m.retakesCount];
 }
 

@@ -12,7 +12,7 @@ const NewsCN = cn('news');
 export const News = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(newsActions.getNews({page: 1, newsAtPage: atPage}));
+        dispatch(newsActions.getNews({page: 0, newsAtPage: atPage}));
         return ()=>dispatch(newsActions.clearNews());
     }, [dispatch]);
     const news = useSelector(getNewsSelector);

@@ -1,46 +1,107 @@
 @import "../../colors.scss";
-$height:80px;
-.header{
-  &-logo{
+
+.header {
+  &-container {
+    background: $grey-1;
+    color: $white;
+    justify-content: space-between;
+    display: flex;
+    padding: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    @media screen and (max-width: 1023px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: sticky;
+      z-index: 233;
+      top: 0;
+      padding: 8px;
+    }
+  }
+
+  &-hamburger {
+    display: none
+  }
+
+  &-label-hamburger {
+    display: none;
+    @media screen and (max-width: 1023px) {
+      display: inline;
+    }
+  }
+
+  &-logo {
     white-space: nowrap;
-    margin-left: 30px;
     color: $green;
+    height: 45px;
     text-decoration: none;
     font-weight: 300;
     font-size: 30px;
-    line-height: $height;
-  }
-  &-nav{
-    display: inline-block;
-    width: 700px;
+    @media screen and (max-width: 1023px) {
+      height: 24px;
+      font-size: 18px;
+    }
+    }
+
+  &-nav {
     justify-content: space-between;
+    @media screen and (max-width: 1023px) {
+
+    }
   }
-  &-menu-container{
-    margin-right: 30px;
+
+  &-menu-container {
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+      display: none;
+    }
   }
-  &-link{
-    &:hover{
+
+  &-link {
+    &:hover {
       background: rgba($grey-2, 0.8);
       border-radius: 16px;
       cursor: pointer;
     }
+    line-height: 45px;
     border: 1px solid $grey-1;
     white-space: nowrap;
-    &_active{
+    &_active {
       border: 1px solid white;
       border-radius: 16px;
     }
     font-size: 18px;
     padding: 10px;
-    line-height: $height;
     text-decoration: none;
-    color: $white
-  }
-  color: $white;
-  &-container{
     color: $white;
-    justify-content: space-between;
-    display: flex;
-    height: $height;
+    @media screen and (max-width: 1023px) {
+      display: block;
+      width: calc(100% - 32px);
+      padding: 8px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: initial;
+    }
   }
+
+  color: $white;
 }
+
+.header-hamburger:checked ~ .header-menu-container {
+  @media screen and (max-width: 1023px) {
+    opacity: 1;
+    display: block;
+  }
+
+}
+
+.header-hamburger:checked ~ .header-input {
+  @media screen and (max-width: 1023px) {
+    display: flex;
+    opacity: 1;
+    margin-bottom: 0;
+  }
+
+
+}
+

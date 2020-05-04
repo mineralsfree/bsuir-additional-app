@@ -22,7 +22,7 @@ export const filesApi = {
     return axios.get(`${API_URL}/files/${id}/download`)
   },
   deleteFile: async (id) => {
-    return axios.get(`${API_URL}/files/${id}/download`);
+    return axios.delete(`${API_URL}/files/${id}`);
   },
   createDirectory: async (id, fileName) => {
     return axios.post(`${API_URL}/directories/${id}/directory`, {fileName})

@@ -22,7 +22,6 @@ export const Rating = () => {
     if (el.averageMark > 0) return {name: "S " + el.number || 0, 'Average mark': el.averageMark || 0}
     return {name: "S " + el.number};
   })
-  console.log((marks.semesters[0] && marks.semesters[0].marks))
 const content = (mode === 'overview') ? (<><div> Overall average: {marks.averageMark}</div>    <LineChart
   width={500}
   height={400}

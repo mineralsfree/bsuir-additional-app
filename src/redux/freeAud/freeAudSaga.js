@@ -6,16 +6,13 @@ import {freeAudActions} from './freeAudSlice'
 function* getFreeAuds({payload}) {
     const {building, floor, date, time } = payload;
     try {
-        console.log(payload);
         const response = yield freeAudApi.getFreeAuds(building, floor, date, time );
         yield put(freeAudActions.setFreeAuds( response.data))
     } catch (e) {
         if (e.message.includes('500')){
             error('Pankratiew server fucked up');
-            console.log(e);
         }
         else{
-            console.log(e);
             error('Something went wrong')
         }
     }

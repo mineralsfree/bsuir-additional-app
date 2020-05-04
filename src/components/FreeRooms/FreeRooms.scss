@@ -1,75 +1,105 @@
 @import "../../colors.scss";
 
-.form-group{
-  select{
-    &:active{
-      background: $grey-3;
-      outline: none;
-      border: 2px solid $grey-4;
-      color: white;
-    }
-    &:focus{
-      background: $grey-3;
-      outline: none;
-      border: 2px solid $grey-4;
-      color: white;
-    }
-    option{
-      &:hover{
-        background: $pink !important;
-      }
-    }
-    background: $grey-3;
-    outline: none;
-    border: 2px solid $grey-4;
-    color: white;
-  }
-}
-.result-type{
-  display: flex;
-  padding: 20px;
-  background: $grey-1;
-  p{
-    color: $green;
-    margin: auto 0;
-  }
-}
-.free-rooms{
-  &-form{
+
+.free-rooms {
+
+
+  &-form {
     display: inline-block;
     text-align: center;
-  }
-&-result-item{
-  background: $grey-4;
-  margin-left: 20px;
-  min-width: 60px;
-  padding: 10px;
-}
-  &-free-labs{
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
 
   }
-  &-free-practice{
+
+  &-result-item {
+    margin-top: 16px;
+    background: $grey-4;
+    margin-left: 20px;
+    min-width: 60px;
+    padding: 10px;
   }
-  &-container{
+
+  &-free-labs {
+
+  }
+
+  &-free-practice {
+  }
+
+  &-container {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  &-housing-input{
+
+  &-housing-input {
     display: flex;
     width: 400px;
     justify-content: space-between;
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+      width: calc(100% - 32px);
+      margin: auto;
+    }
   }
-  &-results-container{
+
+  &-results-container {
 
   }
-  &-find-button{
+
+  &-find-button {
     background: $grey-3;
     color: $white;
     outline: $pink;
     border: 2px solid $grey-4;
     width: 400px;
     height: 50px;
+    @media screen and (max-width: 1023px) {
+      width: calc(100% - 32px);
+    }
+  }
+}
+
+.form-group {
+  select {
+    &:active {
+      background: $grey-3;
+      outline: none;
+      border: 2px solid $grey-4;
+      color: white;
+    }
+
+    &:focus {
+      background: $grey-3;
+      outline: none;
+      border: 2px solid $grey-4;
+      color: white;
+    }
+
+    option {
+      &:hover {
+        background: $pink !important;
+      }
+    }
+
+    background: $grey-3;
+    outline: none;
+    border: 2px solid $grey-4;
+    color: white;
+  }
+}
+
+.result-type {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  background: $grey-1;
+
+  p {
+    color: $green;
+    margin: auto 0;
   }
 }
 

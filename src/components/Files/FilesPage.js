@@ -14,7 +14,6 @@ import {Input} from "../common/TextInput/TextInput";
 import {Field, reduxForm} from "redux-form";
 import formValueSelector from "redux-form/lib/formValueSelector";
 import {CommonButton} from "../common/Button/Button";
-import {getParentFolder} from "../../helpers/fileHelper";
 
 const FilesPageCn = cn('files-page')
 export const MyFilesPage = props => {

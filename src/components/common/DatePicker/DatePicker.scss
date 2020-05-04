@@ -1,10 +1,36 @@
 @import "src/colors";
 
+.react-datepicker__header {
+  background: $pink !important;
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: $black !important;
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: $black !important;
+}
+
 .date-picker {
+  &-date-picker {
+    background: $grey-1;
+  }
+
+  &-days {
+    color: $white;
+  }
+
   &-container {
     display: flex;
     margin-bottom: 16px;
     justify-content: space-between;
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
+      margin: 8px 0;
+      padding: 8px 0;
+
+    }
   }
 
   &-input {
@@ -15,6 +41,9 @@
     border-radius: .25rem;
     color: $white;
     height: 38px;
+    @media screen and (max-width: 1023px) {
+      width: calc(100% - 32px);
+    }
   }
 
 
@@ -23,6 +52,11 @@
     padding: .375rem .75rem;
     border-radius: .25rem;
     background: $grey-3;
+  }
+
+  &-button {
+    width: calc(100% - 32px);
+    margin: auto auto 16px auto;
   }
 
   &-button:hover {

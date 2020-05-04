@@ -15,7 +15,6 @@ const filesSlice = createSlice({
                 }
             },
             getDir(state, action) {
-                console.log(action);
             },
             cd(state, action){
               return {
