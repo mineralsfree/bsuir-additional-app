@@ -20,6 +20,7 @@ import {FreeRooms} from "./components/FreeRooms/FreeRooms";
 import {ProfilePage} from "./components/Profile-page/ProfilePage";
 import {FilesPage} from "./components/Files/FilesPage";
 import {Rating} from "./components/rating/Rating";
+import {ContactsPage} from "./components/Contacts/ContactsPage"
 
 function App(props) {
   const { isAuthorized, location } = props;
@@ -27,7 +28,8 @@ function App(props) {
         <div className={`theme`}>
             <ToastContainer/>
           <Switch location={location}>
-            <NonAuthorizedRoute exact={true} path={'/'} component={AuthPage} isAuthorized={isAuthorized} />
+              <NonAuthorizedRoute exact={true} path={'/contact'} component={ContactsPage} isAuthorized={isAuthorized} />
+              <NonAuthorizedRoute exact={true} path={'/'} component={AuthPage} isAuthorized={isAuthorized} />
               <AuthorizedRoute path={Routes.MainRoute} component={News} isAuthorized={isAuthorized} withNavigation />
               <AuthorizedRoute path={Routes.FreeRooms} component={FreeRooms} isAuthorized={isAuthorized} withNavigation />
               <AuthorizedRoute path={Routes.Erud} component={News} isAuthorized={isAuthorized} withNavigation />
