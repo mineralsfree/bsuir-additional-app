@@ -14,22 +14,42 @@ import {Input} from "../common/TextInput/TextInput";
 import {Field, reduxForm} from "redux-form";
 import formValueSelector from "redux-form/lib/formValueSelector";
 import {CommonButton} from "../common/Button/Button";
+import { useParams, useHistory } from 'react-router-dom';
 
-const FilesPageCn = cn('files-page')
+const ROOT = 'root';
+
+const FilesPageCn = cn('files-page');
 export const MyFilesPage = props => {
   const dispatch = useDispatch();
   const dir = useSelector(getCurrentDirSelector);
   const files = useSelector(getFilesSelector);
   const formValueSector = formValueSelector('filesPageForm');
-  const dirNameSelector = state => formValueSector(state, 'dirName')
-  const urlSelector = state => formValueSector(state, 'linkUrl')
-  const urlNameSelector = state => formValueSector(state, 'linkName')
+  const dirNameSelector = state => formValueSector(state, 'dirName');
+  const urlSelector = state => formValueSector(state, 'linkUrl');
+  const urlNameSelector = state => formValueSector(state, 'linkName');
   const url = useSelector(urlSelector);
   const urlName = useSelector(urlNameSelector);
   const dirName = useSelector(dirNameSelector);
+
+  const { directoryId: paramsInitialDirectoryId } = useParams();
+  const history = useHistory();
+  const initialDirectoryId = paramsInitialDirectoryId || ROOT;
+
   useEffect(() => {
-    dispatch(filesActions.getDir(dir))
-  }, [dispatch, dir])
+    dispatch(filesActions.cd(initialDirectoryId));
+  }, []);
+
+  useEffect(() => {
+    dispatch(filesActions.getDir(dir));
+
+    const newPath = dir !== ROOT ? `/files/${dir}` : '/files';
+
+    history.push({
+      pathname: newPath
+    });
+  }, [dispatch, dir]);
+
+
   const handleAddFile = (e) => {
     e.preventDefault();
     filesApi.createDirectory(dir, dirName).then(() => {
