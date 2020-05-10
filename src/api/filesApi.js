@@ -3,12 +3,13 @@ import {API_URL} from "./baseApi";
 import axios from 'axios'
 import {notify} from "../helpers/toaster-helper";
 
+
 export const filesApi = {
   getDir: async (id) => {
     return axios.get(`${API_URL}/directories/${id}/files`)
   },
   uploadFile: async (file, path) => {
-    notify('Upload may take time, pls, wait')
+    notify('Upload may take time, pls, wait');
     let formData = new FormData();
     formData.append("file", file);
     return axios({
@@ -19,7 +20,7 @@ export const filesApi = {
     })
   },
   downloadFile: async (id) => {
-    return axios.get(`${API_URL}/files/${id}/download`)
+    return axios.get(`${API_URL}/files/${id}/download`, {responseType: 'blob'});
   },
   deleteFile: async (id) => {
     return axios.delete(`${API_URL}/files/${id}`);
