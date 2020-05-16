@@ -7,5 +7,31 @@
     align-items: center;
     justify-content: center;
   }
+  &-drop-down{
+    max-width: 700px;
+    margin: 20px auto;
+  }
 
+}
+::-webkit-scrollbar-track {
+  background: $pink;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $green;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $pink;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $grey-2;
 }

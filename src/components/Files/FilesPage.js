@@ -37,7 +37,7 @@ export const MyFilesPage = props => {
 
   useEffect(() => {
     dispatch(filesActions.cd(initialDirectoryId));
-  }, []);
+  }, [initialDirectoryId, dispatch]);
 
   useEffect(() => {
     dispatch(filesActions.getDir(dir));
@@ -47,7 +47,7 @@ export const MyFilesPage = props => {
     history.push({
       pathname: newPath
     });
-  }, [dispatch, dir]);
+  }, [dispatch, dir, history]);
 
 
   const handleAddFile = (e) => {
