@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {authActions} from "../../redux/auth/authSlice";
 import formValueSelector from "redux-form/lib/formValueSelector";
 import {cn} from '@bem-react/classname'
-import logo from '../../static-photos/2x/logo.png'
+import logo from '../../static-photos/logo.png'
 
 const authPageCn = cn('auth-page');
 export const Auth = () => {

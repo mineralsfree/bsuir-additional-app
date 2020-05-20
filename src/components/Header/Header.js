@@ -2,7 +2,6 @@ import React from 'react';
 import {cn} from '@bem-react/classname'
 import './Header.scss'
 import {Link} from "react-router-dom";
-import hamburger from '../../static-photos/SVG/burder.svg'
 import {MobileTabs} from "../MobileTabs/MobileTabs";
 
 const headerCN = cn('header');
