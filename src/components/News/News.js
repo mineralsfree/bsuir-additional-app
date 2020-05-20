@@ -48,7 +48,7 @@ export const News = () => {
     dispatch(newsActions.getNews({page: 0, newsAtPage: atPage, mySources: subs}))
   }, [dispatch, subs])
   return (<>   <div className={NewsCN('drop-down')}>
-    {sourcesDrop  && mySubscriptions  && <DropDownWithCheckbox defaultValue={mySubscriptions.length>0 && mySubscriptions} options={sourcesDrop} onChange={onChangeSubscriptions}>
+    {sourcesDrop  && mySubscriptions && false   && <DropDownWithCheckbox defaultValue={mySubscriptions.length>0 && mySubscriptions} options={sourcesDrop} onChange={onChangeSubscriptions}>
     </DropDownWithCheckbox> }
   </div>
     <div className={NewsCN('container')} id="scrollableDiv">
