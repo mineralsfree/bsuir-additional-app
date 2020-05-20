@@ -4,7 +4,10 @@ table, th, td{
 }
 td, th{
   padding: 8px;
-}
+  @media screen and (max-width: 1023px) {
+  padding: 4px  ;
+  }
+  }
 th{
   background: $grey-4;
 }

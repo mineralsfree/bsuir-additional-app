@@ -12,6 +12,7 @@ import {Table} from "../common/Table/Table";
 
 const ratingCn = cn('rating')
 export const Rating = () => {
+  const isDesktop = window.matchMedia("(min-width: 1023px)").matches;
   const dispatch = useDispatch();
   const [mode, setMode] = useState('overview');
   useEffect(() => {
@@ -23,12 +24,12 @@ export const Rating = () => {
     return {name: "S " + el.number};
   })
 const content = (mode === 'overview') ? (<><div> Overall average: {marks.averageMark}</div>    <LineChart
-  width={500}
-  height={400}
+  width={isDesktop? 500 : window.innerWidth - 32}
+  height={isDesktop? 400 : window.innerWidth - 32}
   data={data}
-  margin={{
+  margin={isDesktop? {
     top: 5, right: 30, left: 20, bottom: 5,
-  }}
+  } : {}}
 >
   <Line dataKey="Average mark" stroke="#8884d8"/>
   <XAxis domain={[1, 8]} dataKey="name"/>
@@ -39,7 +40,10 @@ const content = (mode === 'overview') ? (<><div> Overall average: {marks.average
 </LineChart></>) : (
   <>
     <div> Average mark: {marks.semesters[mode -1].averageMark}</div>
-  <Table data={marks.semesters[mode -1].marks.map(m => mapMarks(m))} head={tableHead}/>
+    <div className={ratingCn('table-container')}>
+      <Table data={marks.semesters[mode -1].marks.map(m => mapMarks(m))} head={tableHead}/>
+
+    </div>
   </>)
 
   return (<div className={ratingCn('container')}>

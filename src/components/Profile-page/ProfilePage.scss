@@ -44,7 +44,12 @@
   }
 
   &-container {
-    font-size: 16px;
+    @media screen and (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      max-width: calc(100% - 32px);
+    }
+      font-size: 16px;
     display: grid;
     width: 700px;
     margin: auto;

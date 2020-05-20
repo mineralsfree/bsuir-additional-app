@@ -8,6 +8,7 @@ import {NewsPost} from "./NewsPost/NewsPost";
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {DropDownWithCheckbox} from "../common/DropDownWithCheckbox/DropDownWithCheckbox";
+import {Spinner} from "../common/Spinner/Spinner";
 
 const atPage = 20;
 const NewsCN = cn('news');
@@ -39,16 +40,20 @@ export const News = () => {
     dispatch(newsActions.clearNews())
     if (e !==null){
       dispatch(newsActions.putSources(e.map(el=>el.value)))
+      dispatch(newsActions.getNews({page: 0, newsAtPage: atPage, mySources: e.map(el=>el.value)}))
+
     } else{
       dispatch(newsActions.putSources())
+      dispatch(newsActions.getNews({page: 0, newsAtPage: atPage}))
+
 
     }
   }
   useEffect(()=>{
     dispatch(newsActions.getNews({page: 0, newsAtPage: atPage, mySources: subs}))
-  }, [dispatch, subs])
+  }, [dispatch  ])
   return (<>   <div className={NewsCN('drop-down')}>
-    {sourcesDrop  && mySubscriptions && false   && <DropDownWithCheckbox defaultValue={mySubscriptions.length>0 && mySubscriptions} options={sourcesDrop} onChange={onChangeSubscriptions}>
+    {sourcesDrop  && mySubscriptions   && <DropDownWithCheckbox defaultValue={mySubscriptions.length>0 && mySubscriptions} options={sourcesDrop} onChange={onChangeSubscriptions}>
     </DropDownWithCheckbox> }
   </div>
     <div className={NewsCN('container')} id="scrollableDiv">
@@ -57,7 +62,7 @@ export const News = () => {
         dataLength={news.length || 0} //This is important field to render the next data
         next={fetchNews}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        loader={<Spinner/>}
         endMessage={
           <p style={{textAlign: 'center'}}>
             <b>Yay! You have seen it all</b>
