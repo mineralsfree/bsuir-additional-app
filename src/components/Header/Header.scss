@@ -76,7 +76,8 @@
       border-radius: 16px;
       @media screen and (max-width: 1023px) {
         border: 0;
-        filter: invert(76%) sepia(14%) saturate(1055%) hue-rotate(112deg) brightness(85%) contrast(94%);
+        border-radius: 0;
+        filter: invert(76%) sepia(14%) saturate(1055%) hue-rotate(112deg) brightness(85%) contrast(94%) !important;
 
       }
     }
@@ -96,27 +97,41 @@
   &_my-profile{
     background: url("../../static-photos/user_male@3x.png") no-repeat center;
     background-size: cover;
+    filter: invert(26%) sepia(2%) saturate(1731%) hue-rotate(140deg) brightness(90%) contrast(85%);
+
+
 
   }
     &_files {
-      height: 50px;
       background: url("../../static-photos/documents@3x.png") no-repeat center;
       background-size: cover;
+      filter: invert(26%) sepia(2%) saturate(1731%) hue-rotate(140deg) brightness(90%) contrast(85%);
+
+
     }
 
     &_rating {
       background: url("../../static-photos/Investment@3x.png") no-repeat center;
       background-size: cover;
+      filter: invert(26%) sepia(2%) saturate(1731%) hue-rotate(140deg) brightness(90%) contrast(85%);
+
+
     }
 
     &_news {
       background: url("../../static-photos/news@3x.png") no-repeat center;
       background-size: cover;
+      filter: invert(26%) sepia(2%) saturate(1731%) hue-rotate(140deg) brightness(90%) contrast(85%);
+
+
     }
 
     &_free-rooms {
       background: url("../../static-photos/training@3x.png") no-repeat center;
       background-size: cover; /* Resize the background image to cover the entire container */
+      filter: invert(26%) sepia(2%) saturate(1731%) hue-rotate(140deg) brightness(90%) contrast(85%);
+
+
     }
   }
 
