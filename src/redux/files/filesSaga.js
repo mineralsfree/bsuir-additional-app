@@ -2,7 +2,7 @@ import {all, takeLatest, put} from 'redux-saga/effects';
 import {FILE_ACTION_TYPES} from './filesConstants'
 import {filesApi} from "../../api/filesApi";
 import {filesActions} from "./filesSlice";
-import {error} from "../../helpers/toaster-helper";
+import {errorToast} from "../../components/common/Toast/Toast";
 
 function* getDir({type, payload}) {
   try{
@@ -10,10 +10,10 @@ function* getDir({type, payload}) {
     yield put(filesActions.setDir(response.data));
   }
 catch (e) {
-  error(e);
+  errorToast(e);
   if (e.message.includes('500'))
-    error('Pankratiew server fucked up');
-  else error('Something went wrong')
+    errorToast('Pankratiew server fucked up');
+  else errorToast('Something went wrong')
 }
 }
 //function* changeDir({type, payload}) {

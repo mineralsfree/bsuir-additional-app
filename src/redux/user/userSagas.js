@@ -1,7 +1,7 @@
 import {all, takeLatest, put} from 'redux-saga/effects';
 import {USER_ACTION_TYPES} from "./userConstants";
 import {userApi} from "../../api/userApi";
-import {error} from "../../helpers/toaster-helper";
+import {errorToast} from "../../components/common/Toast/Toast";
 import {userActions} from "./userSlice";
 
 function* getUser({payload}) {
@@ -10,8 +10,8 @@ function* getUser({payload}) {
     yield put(userActions.setUser(response.data))
   } catch (e) {
     if (e.message.includes('500'))
-      error('Pankratiew server fucked up');
-    else error('Something went wrong')
+      errorToast('Pankratiew server fucked up');
+    else errorToast('Something went wrong')
   }
 }
 
@@ -21,8 +21,8 @@ function* getMarks({payload}) {
     yield put(userActions.setMarks(response.data))
   } catch (e) {
     if (e.message.includes('500'))
-      error('Pankratiew server fucked up');
-    else error('Something went wrong')
+      errorToast('Pankratiew server fucked up');
+    else errorToast('Something went wrong')
   }
 }
 

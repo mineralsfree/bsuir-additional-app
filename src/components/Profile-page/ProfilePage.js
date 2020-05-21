@@ -9,6 +9,8 @@ import {authActions} from "../../redux/auth/authSlice";
 import {Spinner} from "../common/Spinner/Spinner";
 import Img from 'react-image';
 import StarRatings from 'react-star-ratings';
+import {Link} from "react-router-dom";
+import {Routes} from "../../const/Routes";
 
 const profilePageCn = cn('user-page');
 export const ProfilePage = props => {
@@ -24,7 +26,7 @@ export const ProfilePage = props => {
     const links = user && user.references && user.references.map((el) => {
         return <span className={profilePageCn('links')}><a href={el.reference}>{el.name}</a></span>
     })
-    return (<div className={profilePageCn('container')}>
+    return (<><div className={profilePageCn('container')}>
         {user && user.firstName && <div className={profilePageCn('icon')}>
             <Img
                 src={user.photo}
@@ -66,6 +68,8 @@ export const ProfilePage = props => {
             </div>
 
         </div>}
+    </div>
+    <Link to={Routes.FeedbackPage} className={'connect-page-link'}>Связаться с разработчиками</Link>
 
-    </div>)
+</>)
 }

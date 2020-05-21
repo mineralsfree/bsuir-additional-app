@@ -4,7 +4,7 @@ import {cn} from "@bem-react/classname";
 import './FilesPage.scss';
 import {filesActions} from "../../redux/files/filesSlice";
 import {FileDrop} from "react-file-drop";
-import {error} from '../../helpers/toaster-helper'
+import {errorToast} from "../common/Toast/Toast";
 import {filesApi} from "../../api/filesApi";
 import {getFilesSelector, getCurrentDirSelector} from "../../redux/files/filesSelectors";
 import {FilesItem} from "./FileItem/FileItem";
@@ -66,7 +66,7 @@ export const MyFilesPage = props => {
   const uploadFile = (fileList, e) => {
     const files = Array.from(fileList);
     if (files.length > 1) {
-      error("Only one file at time for now")
+      errorToast("Only one file at time for now")
       return
     }
     filesApi.uploadFile(fileList[0], dir).then(() => dispatch(filesActions.getDir(dir)))

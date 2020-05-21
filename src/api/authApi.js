@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { API_URL } from './baseApi'
+import {errorToast} from "../components/common/Toast/Toast";
 export const authApi = {
     auth: async (username, password ) =>{
         const response = await axios.post(`${API_URL}/auth`, { username, password});
@@ -19,4 +20,11 @@ export const initAuthorization = () => {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     }
 };
+axios.interceptors.response.use( (response)=> {
+    // Do something with response data
+    return response;
+}, function (e) {
+    errorToast(e);
+    return Promise.reject(e);
+});
 initAuthorization();

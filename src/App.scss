@@ -1,9 +1,13 @@
+@import "colors";
+
 .App {
   text-align: center;
 }
-.Toastify__toast-body{
+
+.Toastify__toast-body {
   font-size: 18px;
 }
+
 .App-logo {
   height: 40vmin;
 }
@@ -33,4 +37,20 @@
 .contacts {
   width: 500px;
   margin: auto;
+}
+
+.connect-page-link {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  color: $white;
+
+  &:hover {
+    color: $pink;
+  }
+
+  @media screen and (max-width: 1023px) {
+    bottom: 60px;
+    left: 16px
+  }
 }

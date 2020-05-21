@@ -1,5 +1,5 @@
 import { all, takeLatest, put } from 'redux-saga/effects';
-import {error} from "../../helpers/toaster-helper";
+import {errorToast} from "../../components/common/Toast/Toast";
 import {freeAudApi} from "../../api/freeAudApi";
 import {FREE_AUDS_ACTION_TYPES} from "./freeAudConstants";
 import {freeAudActions} from './freeAudSlice'
@@ -10,10 +10,10 @@ function* getFreeAuds({payload}) {
         yield put(freeAudActions.setFreeAuds( response.data))
     } catch (e) {
         if (e.message.includes('500')){
-            error('Pankratiew server fucked up');
+            errorToast('Pankratiew server fucked up');
         }
         else{
-            error('Something went wrong')
+            errorToast('Something went wrong')
         }
     }
 }

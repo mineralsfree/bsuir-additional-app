@@ -5,5 +5,6 @@ export const Routes = {
     Rating: '/rating',
     Files: '/files/:directoryId?',
     FreeRooms: '/free-rooms',
-    Profile: '/user'
+    Profile: '/user',
+    FeedbackPage: '/feedback'
 };

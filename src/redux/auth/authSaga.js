@@ -6,7 +6,7 @@ import { Routes } from '../../const/Routes';
 import { AUTH_ACTION_TYPES } from './authConstants';
 import {authApi} from "../../api/authApi";
 import {authActions} from './authSlice'
-import {error} from "../../helpers/toaster-helper";
+import {errorToast} from "../../components/common/Toast/Toast";
 
 function* checkAuthStatusSaga() {
     try {
@@ -27,7 +27,7 @@ function* authSaga({ payload }) {
         yield call(checkAuthStatusSaga);
     } catch (err) {
         if (err.response && err.response.status === 400) {
-            error('Authorization error')
+            errorToast('Authorization error')
         }
         console.error('authSaga error', err);
     }
