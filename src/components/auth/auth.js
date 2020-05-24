@@ -25,8 +25,6 @@ export const Auth = () => {
         <img className={authPageCn('logo')} src={logo} alt={'слепые сосать'}/>
         <form onSubmit={e => handleForm(e)} className={authPageCn('input-form')}>
           <div className={authPageCn('login')}>
-            {/*<LoginIcon className={authPageCn('login-icon')}/>*/}
-            {/*<div className={authPageCn('login-icon')}>a</div>*/}
             <Field
               className={authPageCn('login-input') + ' ' + authPageCn('input')}
               name="login"

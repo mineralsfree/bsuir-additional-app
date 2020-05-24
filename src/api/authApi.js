@@ -24,7 +24,14 @@ axios.interceptors.response.use( (response)=> {
     // Do something with response data
     return response;
 }, function (e) {
-    errorToast(e);
+    console.log( typeof (JSON.parse(JSON.stringify(e))).message);
+    if ((JSON.parse(JSON.stringify(e))).message.includes('401')){
+        errorToast("Authorization Error");
+    } else {
+        errorToast(e);
+
+    }
+
     return Promise.reject(e);
 });
 initAuthorization();

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {cn} from '@bem-react/classname'
 import './Header.scss'
 import {Link} from "react-router-dom";
@@ -6,8 +6,14 @@ import {MobileTabs} from "../MobileTabs/MobileTabs";
 
 const headerCN = cn('header');
 export const Header = props => {
+  const [isDesktop, changeIsDesktop] = useState(window.matchMedia("(min-width: 1023px)").matches);
   const {pathname} = props.location;
-  const isDesktop = window.matchMedia("(min-width: 1023px)").matches;
+  const cList = window.matchMedia("(min-width: 1023px)");
+
+  const cIsDesktop = (x) => {
+    changeIsDesktop(() => x.matches)
+  }
+  cList.addListener(cIsDesktop);
   const Links = ({d}) => {
     return (<>       <Link className={headerCN('link', {active: pathname === '/news', news: !d})}
                            to={'/news'}>{d && 'Новости'}</Link>

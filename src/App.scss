@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.theme {
+  @media screen and (max-width: 1023px) {
+    padding-bottom: 50px;;
+  }
+}
+
 .Toastify__toast-body {
   font-size: 18px;
 }
