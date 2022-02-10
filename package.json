@@ -13,7 +13,7 @@
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "moment-jdateformatparser": "^1.2.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-contexify": "^4.1.1",
